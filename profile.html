@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>雄狮养成计划 - 个人名片</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(ellipse at center, #0a1140 0%, #060d23 100%);
+      overflow: hidden;
+      font-family: 'Segoe UI', 'Arial', 'sans-serif';
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* 黑洞漩涡动画 */
+    .blackhole {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      width: 400px;
+      height: 400px;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .vortex {
+      position: absolute;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, #00d4ff 0%, #191970 35%, #0b1234 100%);
+      filter: blur(8px) brightness(1.4);
+      animation: swirl 6s linear infinite;
+    }
+    @keyframes swirl {
+      100% { transform: rotate(360deg); }
+    }
+    .hole {
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%,-50%);
+      width: 120px; height: 120px;
+      background: radial-gradient(ellipse at center, #060d23 70%, #000 100%);
+      border-radius: 50%;
+      box-shadow: 0 0 80px 20px #001c6b inset, 0 0 32px 8px #00d4ff;
+      z-index: 2;
+    }
+    /* 功能模块布局 */
+    .module {
+      position: absolute;
+      width: 92px; height: 92px;
+      background: linear-gradient(135deg, #191970 60%, #00d4ff 100%);
+      border-radius: 50%;
+      box-shadow: 0 0 22px #00d4ffcc, 0 0 12px #19197088;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.2em;
+      font-weight: bold;
+      z-index: 10;
+      opacity: 0.93;
+      cursor: pointer;
+      transition: box-shadow 0.3s, transform 0.2s;
+    }
+    .module:hover {
+      box-shadow: 0 0 44px #00fffc, 0 0 16px #191970;
+      transform: scale(1.08);
+      background: linear-gradient(135deg, #00d4ff 50%, #191970 100%);
+    }
+    /* 模块位置环绕黑洞 */
+    .mod1 { left: 50%; top: calc(50% - 180px); transform: translate(-50%,0);}
+    .mod2 { left: calc(50% + 150px); top: 50%; transform: translate(0,-50%);}
+    .mod3 { left: 50%; top: calc(50% + 180px); transform: translate(-50%,0);}
+    .mod4 { left: calc(50% - 150px); top: 50%; transform: translate(0,-50%);}
+    /* 内容面板（居中展示） */
+    .profile-card {
+      position: relative;
+      z-index: 20;
+      background: rgba(20,28,52,0.96);
+      border-radius: 28px;
+      box-shadow: 0 10px 40px #00d4ff88, 0 2px 24px #19197088;
+      padding: 54px 38px 38px 38px;
+      text-align: center;
+      color: #fff;
+      width: 340px;
+      max-width: 95vw;
+      margin: 0 auto;
+    }
+    .profile-avatar {
+      width: 108px;
+      height: 108px;
+      border-radius: 50%;
+      box-shadow: 0 0 18px #fff, 0 0 6px #00d4ff;
+      margin-bottom: 22px;
+      animation: avatarPop 1.2s cubic-bezier(.33,.99,.69,.99);
+    }
+    @keyframes avatarPop {
+      0% {transform: scale(0.5);}
+      80% {transform: scale(1.12);}
+      100% {transform: scale(1);}
+    }
+    .profile-title {
+      font-size: 2em;
+      font-weight: bold;
+      color: #00d4ff;
+      background: linear-gradient(90deg,#00d4ff,#191970);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 18px;
+      letter-spacing: 2px;
+    }
+    .profile-desc {
+      font-size: 1.09em;
+      margin-bottom: 20px;
+      color: #e4e6fb;
+    }
+    .profile-contact {
+      margin-top: 26px;
+      font-size: 1.05em;
+      color: #ff6ec4;
+      background: rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 12px 0;
+    }
+    .profile-contact b {
+      color: #00d4ff;
+    }
+    .back-btn {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 10px 38px;
+      border-radius: 30px;
+      background: linear-gradient(90deg,#00d4ff 0%,#191970 100%);
+      box-shadow: 0 4px 18px #00d4ff55;
+      color: #fff;
+      font-size: 1.08em;
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: 1px;
+      transition: background 0.2s;
+    }
+    .back-btn:hover {
+      background: linear-gradient(90deg,#191970 0%,#00d4ff 100%);
+      color: #fff;
+      box-shadow: 0 0 22px #00d4ffcc;
+    }
+  </style>
+</head>
+<body>
+  <!-- 黑洞漩涡背景 -->
+  <div class="blackhole">
+    <div class="vortex"></div>
+    <div class="hole"></div>
+    <!-- 四个功能模块环绕黑洞 -->
+    <div class="module mod1">模块一</div>
+    <div class="module mod2">模块二</div>
+    <div class="module mod3">模块三</div>
+    <div class="module mod4">模块四</div>
+  </div>
+  <!-- 个人信息面板（居中浮动） -->
+  <div class="profile-card">
+    <img src="tjy.jpg" alt="我的头像" class="profile-avatar">
+    <div class="profile-title">雄狮养成计划</div>
+    <div class="profile-desc">你好！我是科技成长的见证者，欢迎关注我的主页！<br>这里有项目、学习、交流、分享和更多精彩内容。</div>
+    <div class="profile-contact">
+      <b>邮箱：</b>15233726302@163.com <br>
+      <b>微信：</b>tjy021006 <br>
+      <b>电话：</b>13523443682 <br>
+      <b>GitHub：</b><a href="https://github.com/qingyuan-1-1" target="_blank" style="color:#fff;text-decoration:underline;">点我访问</a>
+    </div>
+    <a href="index.html" class="back-btn">返回主页</a>
+  </div>
+</body>
+</html>
