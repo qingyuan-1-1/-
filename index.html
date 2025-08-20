@@ -1,69 +1,120 @@
-
-<meta charset="utf-8">
-  <title>Evan Tian</title>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>雄狮养成计划</title>
   <style>
     body {
       background: linear-gradient(120deg, #89f7fe, #66a6ff);
+      animation: bgMove 10s infinite alternate;
       color: #222;
-      font-family: 'Segoe UI', 'Arial', sans-serif;
-      text-align: center;
-      padding-top: 100px;
       min-height: 100vh;
+      margin: 0;
+      font-family: "Segoe UI", "Arial", "sans-serif";
+    }
+    @keyframes bgMove {
+      from { background-position: left; }
+      to { background-position: right; }
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 50px 20px 20px 20px;
+      text-align: center;
+      background: rgba(255,255,255,0.13);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(80,150,200,0.13);
+      margin-top: 40px;
+    }
+    .avatar {
+      width: 128px;
+      height: 128px;
+      border-radius: 50%;
+      margin: 0 auto 20px auto;
+      display: block;
+      box-shadow: 0 2px 16px rgba(105,213,255,0.3);
+      border: 4px solid #66a6ff;
+      object-fit: cover;
     }
     h1 {
-      font-size: 3em;
-      margin-bottom: 0.5em;
-      animation: fadeIn 2s;
+      font-size: 2.5em;
+      font-weight: bold;
+      margin-bottom: 12px;
     }
     p {
-      font-size: 1.5em;
-      opacity: 0.8;
-      animation: fadeIn 3s;
+      font-size: 1.3em;
+      margin-bottom: 32px;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px);}
-      to { opacity: 1; transform: translateY(0);}
-    }
-    .vibe {
-      margin-top: 2em;
-      font-size: 2em;
+    .btn {
+      font-size: 1.3em;
+      padding: 12px 50px;
+      border-radius: 32px;
+      background: #89f7fe;
+      border: none;
       color: #fff;
-      background: rgba(0,0,0,0.1);
-      border-radius: 1em;
-      display: inline-block;
-      padding: 0.7em 2em;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-      animation: vibeGlow 2s infinite alternate;
+      margin-bottom: 20px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(105,213,255,0.13);
+      transition: background 0.3s;
     }
-    @keyframes vibeGlow {
-      from { box-shadow: 0 0 10px #66a6ff;}
-      to { box-shadow: 0 0 32px #89f7fe;}
+    .btn:hover {
+      background: #66a6ff;
+    }
+    .links {
+      margin: 20px 0 10px 0;
+      font-size: 1em;
+    }
+    .links a {
+      color: #66a6ff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+    form {
+      margin-top: 10px;
+      margin-bottom: 0;
+    }
+    input, textarea {
+      width: 90%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #66a6ff;
+      border-radius: 8px;
+      font-size: 1em;
+      box-sizing: border-box;
+      resize: none;
+    }
+    button[type="submit"] {
+      padding: 8px 20px;
+      border-radius: 8px;
+      background: #66a6ff;
+      color: #fff;
+      border: none;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button[type="submit"]:hover {
+      background: #89f7fe;
     }
   </style>
-body {
-  background: linear-gradient(120deg, #89f7fe, #66a6ff);
-  animation: bgMove 10s infinite alternate;
-}
-@keyframes bgMove {
-  from { background-position: left; }
-  to { background-position: right; }
-}
 </head>
 <body>
-    <img src="tjy.jpg" alt="我的头像" class="avatar">
-  <h1>雄狮养成计划！</h1>
-  <p>这是我的主页，欢迎来访！</p>
-  <div class="vibe">✨ Follow✨</div>
-  <div>
-  <a href="mailto:15233726302@163.com" style="color:#66a6ff;">联系我</a>
-  |
-  <a href="https://github.com/qingyuan-1-1" target="_blank" style="color:#89f7fe;">我的GitHub</a>
-</div>
+  <div class="container">
+    <img src="avatar.jpg" alt="我的头像" class="avatar">
+    <h1>雄狮养成计划！</h1>
+    <p>这是我的主页，欢迎来访！</p>
+    <button class="btn">✨ Follow ✨</button>
+    <div class="links">
+      <a href="mailto:你的邮箱">联系我</a>
+      <a href="https://github.com/你的GitHub用户名" target="_blank">我的GitHub</a>
+    </div>
+    <form>
+      <input type="text" placeholder="你的名字"><br>
+      <textarea rows="3" placeholder="留言内容"></textarea><br>
+      <button type="submit">提交留言</button>
+    </form>
+  </div>
 </body>
 </html>
-<form>
-  <input type="text" placeholder="你的名字"><br>
-  <textarea placeholder="留言内容"></textarea><br>
-  <button type="submit">提交留言</button>
-</form>
-
