@@ -131,6 +131,8 @@
     }
   </style>
 </head>
+  <link rel="stylesheet" href="https://unpkg.com/@waline/client/dist/waline.css">
+<script src="https://unpkg.com/@waline/client/dist/waline.js"></script>
 <body>
   <div class="card">
     <img src="tjy.jpg" alt="我的头像" class="avatar">
@@ -138,6 +140,12 @@
     <p>欢迎来到我的主页！一起见证科技与成长的力量。</p>
     <button class="btn">✨ Follow ✨</button>
     <div class="links">
+      <div class="links">
+  <a href="mailto:你的邮箱">邮箱</a>
+  <span>微信：tjy021006</span>
+  <span>电话：13523443682</span>
+  <a href="https://github.com/你的GitHub用户名" target="_blank">GitHub</a>
+</div>
       <a href="mailto:15233726302@163.com">联系我</a>
       <a href="https://github.com/qingyuan-1-1" target="_blank">我的GitHub</a>
     </div>
@@ -145,7 +153,18 @@
       <input type="text" placeholder="你的名字"><br>
       <textarea rows="3" placeholder="留言内容"></textarea><br>
       <button type="submit">提交留言</button>
-    </form>
+    </form><div id="waline"></div>
   </div>
-</body>
+</body><script>
+Waline.init({
+  el: '#waline',
+  serverURL: 'https://https://vc9y3kcm.lc-cn-n1-shared.com',
+  lang: 'zh-CN',
+  emoji: [
+    '//unpkg.com/@waline/emojis@1.1.0/weibo',
+    '//unpkg.com/@waline/emojis@1.1.0/bilibili',
+  ],
+  requiredMeta: ['nick', 'mail'],
+});
+</script>
 </html>
