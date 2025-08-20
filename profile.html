@@ -47,28 +47,21 @@
       box-shadow: 0 0 80px 20px #001c6b inset, 0 0 32px 8px #00d4ff;
       z-index: 2;
     }
-    /* 功能模块布局 */
+    /* 功能模块布局，纯发光点，无文字重叠 */
     .module {
       position: absolute;
-      width: 92px; height: 92px;
-      background: linear-gradient(135deg, #191970 60%, #00d4ff 100%);
+      width: 80px; height: 80px;
+      background: radial-gradient(circle, #00d4ff 40%, #191970 90%, transparent 100%);
       border-radius: 50%;
-      box-shadow: 0 0 22px #00d4ffcc, 0 0 12px #19197088;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 1.2em;
-      font-weight: bold;
-      z-index: 10;
-      opacity: 0.93;
-      cursor: pointer;
-      transition: box-shadow 0.3s, transform 0.2s;
+      box-shadow: 0 0 32px 12px #00d4ff44, 0 0 12px 2px #191970cc;
+      z-index: 5;
+      opacity: 0.7;
+      /* 动画呼吸效果 */
+      animation: modpulse 3s ease-in-out infinite;
     }
-    .module:hover {
-      box-shadow: 0 0 44px #00fffc, 0 0 16px #191970;
-      transform: scale(1.08);
-      background: linear-gradient(135deg, #00d4ff 50%, #191970 100%);
+    @keyframes modpulse {
+      0%,100% { opacity: 0.7; box-shadow: 0 0 32px 12px #00d4ff44, 0 0 12px 2px #191970cc;}
+      50% { opacity: 1; box-shadow: 0 0 48px 24px #00d4ff88, 0 0 24px 8px #191970bb;}
     }
     /* 模块位置环绕黑洞 */
     .mod1 { left: 50%; top: calc(50% - 180px); transform: translate(-50%,0);}
@@ -79,15 +72,16 @@
     .profile-card {
       position: relative;
       z-index: 20;
-      background: rgba(20,28,52,0.96);
+      background: rgba(20,28,52,0.99);
       border-radius: 28px;
-      box-shadow: 0 10px 40px #00d4ff88, 0 2px 24px #19197088;
+      box-shadow: 0 10px 60px #00d4ff88, 0 2px 36px #19197088;
       padding: 54px 38px 38px 38px;
       text-align: center;
       color: #fff;
       width: 340px;
       max-width: 95vw;
       margin: 0 auto;
+      backdrop-filter: blur(2px);
     }
     .profile-avatar {
       width: 108px;
@@ -96,6 +90,7 @@
       box-shadow: 0 0 18px #fff, 0 0 6px #00d4ff;
       margin-bottom: 22px;
       animation: avatarPop 1.2s cubic-bezier(.33,.99,.69,.99);
+      background: #191970;
     }
     @keyframes avatarPop {
       0% {transform: scale(0.5);}
@@ -117,6 +112,7 @@
       font-size: 1.09em;
       margin-bottom: 20px;
       color: #e4e6fb;
+      text-shadow: 0 2px 22px #19197055;
     }
     .profile-contact {
       margin-top: 26px;
@@ -125,6 +121,7 @@
       background: rgba(255,255,255,0.08);
       border-radius: 14px;
       padding: 12px 0;
+      box-shadow: 0 0 12px #00d4ff44;
     }
     .profile-contact b {
       color: #00d4ff;
@@ -155,11 +152,11 @@
   <div class="blackhole">
     <div class="vortex"></div>
     <div class="hole"></div>
-    <!-- 四个功能模块环绕黑洞 -->
-    <div class="module mod1">模块一</div>
-    <div class="module mod2">模块二</div>
-    <div class="module mod3">模块三</div>
-    <div class="module mod4">模块四</div>
+    <!-- 四个功能模块环绕黑洞（只显示发光圆点，无文字） -->
+    <div class="module mod1"></div>
+    <div class="module mod2"></div>
+    <div class="module mod3"></div>
+    <div class="module mod4"></div>
   </div>
   <!-- 个人信息面板（居中浮动） -->
   <div class="profile-card">
