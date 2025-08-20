@@ -7,8 +7,8 @@
     body {
       margin: 0;
       min-height: 100vh;
-      background: linear-gradient(120deg, #0a0a0a 0%, #181818 100%);
       font-family: 'Segoe UI', 'Arial', 'sans-serif';
+      background: #0a0a0a;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -18,96 +18,37 @@
       display: flex;
       flex-direction: row;
       justify-content: center;
-      align-items: center;
+      align-items: stretch;
       width: 100vw;
       height: 100vh;
-      max-width: 1500px;
+      max-width: 1800px;
+      box-sizing: border-box;
     }
-    /* 黑洞左侧科技感 */
-    .blackhole-zone {
-      flex: 1.2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-width: 380px;
+    /* 左侧艺术科技感背景 */
+    .art-bg {
+      flex: 1.5;
       position: relative;
-      height: 100vh;
       overflow: hidden;
-    }
-    .blackhole {
-      position: relative;
-      width: 440px;
-      height: 440px;
-      min-width: 320px;
-      min-height: 320px;
-      z-index: 1;
-      margin-left: 3vw;
-      margin-right: 1vw;
+      min-width: 440px;
+      max-width: 900px;
+      background: #000;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    .vortex {
-      position: absolute;
-      left: 50%; top: 50%;
-      transform: translate(-50%,-50%);
-      width: 100%; height: 100%;
-      border-radius: 50%;
-      background: conic-gradient(from 0deg, #222 0%, #000 80%, #222 100%);
-      filter: blur(16px) brightness(1.1);
-      animation: swirl 7s linear infinite;
-      box-shadow: 0 0 160px 30px #000 inset, 0 0 120px 18px #1a1a1a;
+    /* 用你上传的图片做背景，建议图片命名为 art-bg.jpg 或 png */
+    .art-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(1.12) contrast(1.16) saturate(1.18) blur(0px) drop-shadow(0 0 80px #00e7ff);
+      /* 可微调 */
+      border-radius: 0 60% 60% 0/0 100% 100% 0;
+      box-shadow: 0 0 120px 20px #00e7ff88;
+      user-select: none;
+      pointer-events: none;
     }
-    @keyframes swirl {
-      100% { transform: translate(-50%,-50%) rotate(360deg);}
-    }
-    .hole {
-      position: absolute;
-      left: 50%; top: 50%;
-      transform: translate(-50%,-50%);
-      width: 170px; height: 170px;
-      background: radial-gradient(ellipse at center, #000 70%, #222 100%);
-      border-radius: 50%;
-      box-shadow: 0 0 120px 40px #000 inset, 0 0 70px 20px #222;
-      z-index: 2;
-      filter: blur(1px);
-    }
-    /* 黑洞发光边缘科技环 */
-    .ring {
-      position: absolute;
-      left: 50%; top: 50%;
-      transform: translate(-50%,-50%);
-      width: 260px; height: 260px;
-      border-radius: 50%;
-      border: 4px dashed #1fe0c5bb;
-      box-shadow: 0 0 44px #1fe0c5cc, 0 0 22px #00f2ff55 inset;
-      filter: blur(0.5px);
-      opacity: 0.42;
-      animation: ringmove 4s linear infinite;
-    }
-    @keyframes ringmove {
-      100% { transform: translate(-50%,-50%) rotate(360deg);}
-    }
-    /* 发光粒子点缀 */
-    .particle {
-      position: absolute;
-      border-radius: 50%;
-      background: radial-gradient(circle, #1fe0c5 60%, #000 100%);
-      box-shadow: 0 0 16px 4px #1fe0c5aa;
-      opacity: 0.8;
-      animation: float 5s ease-in-out infinite alternate;
-    }
-    .particle.p1 { width: 14px; height: 14px; left: 70px; top: 110px; animation-delay: 0s;}
-    .particle.p2 { width: 10px; height: 10px; left: 220px; top: 38px; animation-delay: 1s;}
-    .particle.p3 { width: 18px; height: 18px; left: 330px; top: 260px; animation-delay: 2s;}
-    .particle.p4 { width: 8px; height: 8px; left: 170px; top: 370px; animation-delay: 2.5s;}
-    .particle.p5 { width: 12px; height: 12px; left: 370px; top: 160px; animation-delay: 3s;}
-    @keyframes float {
-      0% { filter: blur(0px);}
-      50% { filter: blur(6px); opacity:0.5;}
-      100% { filter: blur(0px);}
-    }
-    /* 右侧个人简介 */
+    /* 右侧个人卡片区 */
     .profile-zone {
       flex: 1;
       display: flex;
@@ -117,18 +58,19 @@
       height: 100vh;
       position: relative;
       z-index: 3;
+      background: linear-gradient(120deg, #0a0a0a 0%, #181818 100%);
     }
     .profile-card {
       position: relative;
       z-index: 20;
       background: rgba(20,28,52,0.97);
-      border-radius: 32px;
-      box-shadow: 0 10px 46px #1fe0c5a0, 0 2px 36px #1a1a1a99;
-      padding: 58px 48px 48px 48px;
+      border-radius: 36px;
+      box-shadow: 0 12px 46px #00e7ff9a, 0 2px 36px #1a1a1a99;
+      padding: 68px 54px 54px 54px;
       text-align: center;
       color: #fff;
       width: 360px;
-      max-width: 98vw;
+      max-width: 96vw;
       margin-left: 0;
       margin-right: 0;
       backdrop-filter: blur(2px);
@@ -137,40 +79,40 @@
       width: 112px;
       height: 112px;
       border-radius: 50%;
-      box-shadow: 0 0 26px #fff, 0 0 9px #1fe0c5;
-      margin-bottom: 26px;
+      box-shadow: 0 0 26px #fff, 0 0 12px #00e7ff;
+      margin-bottom: 30px;
       background: #191970;
       object-fit: cover;
     }
     .profile-title {
-      font-size: 2.2em;
+      font-size: 2.5em;
       font-weight: bold;
-      color: #1fe0c5;
-      background: linear-gradient(90deg,#1fe0c5,#fff,#1fe0c5);
+      color: #00e7ff;
+      background: linear-gradient(90deg,#00e7ff,#fff,#00e7ff);
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 22px;
-      letter-spacing: 2px;
-      text-shadow: 0 2px 22px #1fe0c555;
+      margin-bottom: 26px;
+      letter-spacing: 3px;
+      text-shadow: 0 2px 22px #00e7ff88;
     }
     .profile-desc {
-      font-size: 1.13em;
-      margin-bottom: 28px;
+      font-size: 1.15em;
+      margin-bottom: 32px;
       color: #e4e6fb;
       text-shadow: 0 2px 22px #19197055;
     }
     .profile-contact {
-      margin-top: 28px;
-      font-size: 1.08em;
-      color: #1fe0c5;
-      background: rgba(255,255,255,0.06);
-      border-radius: 18px;
-      padding: 14px 0;
-      box-shadow: 0 0 18px #1fe0c544;
+      margin-top: 32px;
+      font-size: 1.12em;
+      color: #00e7ff;
+      background: rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 16px 0;
+      box-shadow: 0 0 18px #00e7ff44;
     }
     .profile-contact b {
-      color: #1fe0c5;
+      color: #00e7ff;
       font-weight: bold;
     }
     .profile-contact a {
@@ -179,62 +121,52 @@
     }
     .back-btn {
       display: inline-block;
-      margin-top: 34px;
-      padding: 12px 40px;
+      margin-top: 40px;
+      padding: 14px 44px;
       border-radius: 30px;
-      background: linear-gradient(90deg,#1fe0c5 0%,#181818 100%);
-      box-shadow: 0 4px 18px #1fe0c555;
+      background: linear-gradient(90deg,#00e7ff 0%,#181818 100%);
+      box-shadow: 0 4px 18px #00e7ff55;
       color: #fff;
-      font-size: 1.15em;
+      font-size: 1.18em;
       text-decoration: none;
       font-weight: bold;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       transition: background 0.2s;
       border: none;
       cursor: pointer;
     }
     .back-btn:hover {
-      background: linear-gradient(90deg,#181818 0%,#1fe0c5 100%);
+      background: linear-gradient(90deg,#181818 0%,#00e7ff 100%);
       color: #fff;
-      box-shadow: 0 0 20px #1fe0c5cc;
+      box-shadow: 0 0 22px #00e7ffcc;
     }
     @media (max-width: 900px) {
       .container { flex-direction: column; }
-      .blackhole-zone { min-width: unset; height: 40vh;}
-      .blackhole { width: 320px; height: 320px;}
-      .profile-zone { min-width: unset; height: 60vh;}
-      .profile-card { padding: 36px 12px; width: 94vw;}
+      .art-bg { min-width: unset; height: 44vh; max-width: unset;}
+      .profile-zone { min-width: unset; height: 56vh;}
+      .profile-card { padding: 30px 10px; width: 94vw;}
+      .art-bg img { border-radius: 0 0 60% 60%/0 0 100% 100%; }
     }
     @media (max-width: 600px) {
       .container { flex-direction: column; }
-      .blackhole-zone { min-width: unset; height: 42vh;}
-      .blackhole { width: 220px; height: 220px;}
-      .profile-zone { min-width: unset; height: 58vh;}
-      .profile-card { padding: 24px 6px; width: 98vw;}
+      .art-bg { min-width: unset; height: 36vh; max-width: unset;}
+      .profile-zone { min-width: unset; height: 64vh;}
+      .profile-card { padding: 16px 3px; width: 98vw;}
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- 左侧黑洞科技感区 -->
-    <div class="blackhole-zone">
-      <div class="blackhole">
-        <div class="vortex"></div>
-        <div class="hole"></div>
-        <div class="ring"></div>
-        <div class="particle p1"></div>
-        <div class="particle p2"></div>
-        <div class="particle p3"></div>
-        <div class="particle p4"></div>
-        <div class="particle p5"></div>
-      </div>
+    <!-- 左侧艺术科技感图片区（建议用你自己的炫酷图片，命名为art-bg.jpg或png） -->
+    <div class="art-bg">
+      <img src="art-bg.jpg" alt="科技艺术背景">
     </div>
     <!-- 右侧个人简介区 -->
     <div class="profile-zone">
       <div class="profile-card">
         <img src="tjy.jpg" alt="我的头像" class="profile-avatar">
         <div class="profile-title">雄狮养成计划</div>
-        <div class="profile-desc">你好！我是科技成长的开拓者，欢迎关注我的主页！<br>这里有项目、学习、交流、分享和更多精彩内容。</div>
+        <div class="profile-desc">你好！我是科技成长的见证者，欢迎关注我的主页！<br>这里有项目、学习、交流、分享和更多精彩内容。</div>
         <div class="profile-contact">
           <b>邮箱：</b>15233726302@163.com <br>
           <b>微信：</b>tjy021006 <br>
