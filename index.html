@@ -5,106 +5,137 @@
   <title>雄狮养成计划</title>
   <style>
     body {
-      background: linear-gradient(120deg, #89f7fe, #66a6ff);
-      animation: bgMove 10s infinite alternate;
-      color: #222;
       min-height: 100vh;
       margin: 0;
-      font-family: "Segoe UI", "Arial", "sans-serif";
+      font-family: 'Segoe UI', 'Arial', 'sans-serif';
+      color: #e6e8ed;
+      background: linear-gradient(120deg, #191970 0%, #0f2027 30%, #2c5364 100%);
+      /* 流光动画背景 */
+      background-size: 200% 200%;
+      animation: gradientMove 8s ease-in-out infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    @keyframes bgMove {
-      from { background-position: left; }
-      to { background-position: right; }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
-    .container {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 50px 20px 20px 20px;
+    .card {
+      background: rgba(34, 44, 67, 0.85);
+      border-radius: 24px;
+      max-width: 370px;
+      width: 100%;
+      padding: 36px 28px 28px 28px;
+      box-shadow: 0 6px 32px 0 rgba(47, 194, 255, 0.18), 0 1.5px 8px 0 rgba(0,0,0,0.12);
       text-align: center;
-      background: rgba(255,255,255,0.13);
-      border-radius: 20px;
-      box-shadow: 0 8px 32px rgba(80,150,200,0.13);
-      margin-top: 40px;
+      position: relative;
+      backdrop-filter: blur(2px);
     }
     .avatar {
       width: 128px;
       height: 128px;
       border-radius: 50%;
-      margin: 0 auto 20px auto;
-      display: block;
-      box-shadow: 0 2px 16px rgba(105,213,255,0.3);
-      border: 4px solid #66a6ff;
       object-fit: cover;
+      margin: 0 auto 18px auto;
+      box-shadow: 0 0 18px 4px #30cfd0, 0 2px 10px rgba(0,0,0,0.12);
+      border: 4px solid #30cfd0;
+      background: #191970;
+      display: block;
     }
     h1 {
-      font-size: 2.5em;
-      font-weight: bold;
-      margin-bottom: 12px;
+      margin-top: 0;
+      font-size: 2em;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #30cfd0;
+      text-shadow: 0 2px 18px #30cfd088;
     }
     p {
-      font-size: 1.3em;
-      margin-bottom: 32px;
+      font-size: 1.15em;
+      margin: 18px 0 32px 0;
+      color: #e6e8ed;
+      opacity: 0.95;
     }
     .btn {
-      font-size: 1.3em;
-      padding: 12px 50px;
-      border-radius: 32px;
-      background: #89f7fe;
+      font-size: 1.15em;
+      padding: 12px 40px;
+      border-radius: 30px;
+      background: linear-gradient(90deg, #30cfd0 0%, #330867 100%);
       border: none;
       color: #fff;
-      margin-bottom: 20px;
+      margin-bottom: 26px;
       cursor: pointer;
-      box-shadow: 0 2px 8px rgba(105,213,255,0.13);
-      transition: background 0.3s;
+      box-shadow: 0 0 8px 2px #30cfd088, 0 2px 8px rgba(0,0,0,0.13);
+      font-weight: bold;
+      letter-spacing: 1px;
+      transition: background 0.3s, box-shadow 0.3s;
+      outline: none;
     }
     .btn:hover {
-      background: #66a6ff;
+      background: linear-gradient(90deg, #330867 0%, #30cfd0 100%);
+      box-shadow: 0 0 16px 4px #30cfd0aa;
     }
     .links {
-      margin: 20px 0 10px 0;
+      margin-bottom: 15px;
       font-size: 1em;
+      letter-spacing: 1px;
     }
     .links a {
-      color: #66a6ff;
+      color: #30cfd0;
       text-decoration: none;
       margin: 0 10px;
       font-weight: bold;
+      transition: color 0.25s;
+    }
+    .links a:hover {
+      color: #fff;
+      text-shadow: 0 0 8px #30cfd0;
     }
     form {
-      margin-top: 10px;
-      margin-bottom: 0;
+      margin-top: 8px;
     }
     input, textarea {
-      width: 90%;
+      width: 96%;
       padding: 8px;
       margin-top: 5px;
       margin-bottom: 10px;
-      border: 1px solid #66a6ff;
+      border: 1.5px solid #30cfd0;
+      background: #222c43;
       border-radius: 8px;
       font-size: 1em;
+      color: #e6e8ed;
       box-sizing: border-box;
       resize: none;
+      outline: none;
+      transition: border 0.25s;
+    }
+    input:focus, textarea:focus {
+      border: 1.5px solid #330867;
     }
     button[type="submit"] {
-      padding: 8px 20px;
+      padding: 8px 24px;
       border-radius: 8px;
-      background: #66a6ff;
+      background: linear-gradient(90deg, #30cfd0 0%, #330867 100%);
       color: #fff;
       border: none;
       font-size: 1em;
       cursor: pointer;
+      font-weight: bold;
+      letter-spacing: 1px;
       transition: background 0.3s;
     }
     button[type="submit"]:hover {
-      background: #89f7fe;
+      background: linear-gradient(90deg, #330867 0%, #30cfd0 100%);
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="card">
     <img src="tjy.jpg" alt="我的头像" class="avatar">
-    <h1>雄狮养成计划！</h1>
-    <p>这是我的主页，欢迎来访！</p>
+    <h1>雄狮养成计划</h1>
+    <p>欢迎来到我的主页！一起见证科技与成长的力量。</p>
     <button class="btn">✨ Follow ✨</button>
     <div class="links">
       <a href="mailto:15233726302@163.com">联系我</a>
