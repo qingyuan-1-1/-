@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>我的个人主页</title>
+  <style>
+    body {
+      background: linear-gradient(120deg, #89f7fe, #66a6ff);
+      color: #222;
+      font-family: 'Segoe UI', 'Arial', sans-serif;
+      text-align: center;
+      padding-top: 100px;
+      min-height: 100vh;
+    }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.5em;
+      animation: fadeIn 2s;
+    }
+    p {
+      font-size: 1.5em;
+      opacity: 0.8;
+      animation: fadeIn 3s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .vibe {
+      margin-top: 2em;
+      font-size: 2em;
+      color: #fff;
+      background: rgba(0,0,0,0.1);
+      border-radius: 1em;
+      display: inline-block;
+      padding: 0.7em 2em;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      animation: vibeGlow 2s infinite alternate;
+    }
+    @keyframes vibeGlow {
+      from { box-shadow: 0 0 10px #66a6ff;}
+      to { box-shadow: 0 0 32px #89f7fe;}
+    }
+  </style>
+</head>
+<body>
+  <h1>你好，我是你的名字！</h1>
+  <p>这是我的第一个氛围编程主页，欢迎来访！</p>
+  <div class="vibe">✨ 氛围编程 Vibe Coding ✨</div>
+</body>
+</html>
