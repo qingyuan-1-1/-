@@ -40,6 +40,14 @@
       to { box-shadow: 0 0 32px #89f7fe;}
     }
   </style>
+body {
+  background: linear-gradient(120deg, #89f7fe, #66a6ff);
+  animation: bgMove 10s infinite alternate;
+}
+@keyframes bgMove {
+  from { background-position: left; }
+  to { background-position: right; }
+}
 </head>
 <body>
     <img src="tjy.jpg" alt="我的头像" class="avatar">
@@ -53,3 +61,9 @@
 </div>
 </body>
 </html>
+<form>
+  <input type="text" placeholder="你的名字"><br>
+  <textarea placeholder="留言内容"></textarea><br>
+  <button type="submit">提交留言</button>
+</form>
+
