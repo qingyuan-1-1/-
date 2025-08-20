@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>雄狮养成计划</title>
+  <link rel="stylesheet" href="https://unpkg.com/@waline/client/dist/waline.css">
   <style>
     body {
       min-height: 100vh;
@@ -10,7 +11,6 @@
       font-family: 'Segoe UI', 'Arial', 'sans-serif';
       color: #e6e8ed;
       background: linear-gradient(120deg, #191970 0%, #0f2027 30%, #2c5364 100%);
-      /* 流光动画背景 */
       background-size: 200% 200%;
       animation: gradientMove 8s ease-in-out infinite;
       display: flex;
@@ -72,26 +72,39 @@
       letter-spacing: 1px;
       transition: background 0.3s, box-shadow 0.3s;
       outline: none;
+      text-decoration: none;
+      display: inline-block;
     }
     .btn:hover {
       background: linear-gradient(90deg, #330867 0%, #30cfd0 100%);
       box-shadow: 0 0 16px 4px #30cfd0aa;
     }
-    .links {
-      margin-bottom: 15px;
-      font-size: 1em;
-      letter-spacing: 1px;
+    /* 联系方式整齐一行 */
+    .contact-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
     }
-    .links a {
-      color: #30cfd0;
-      text-decoration: none;
-      margin: 0 10px;
+    .contact-link {
+      color: #00d4ff;
       font-weight: bold;
-      transition: color 0.25s;
+      text-decoration: none;
+      transition: color 0.2s;
     }
-    .links a:hover {
+    .contact-link:hover {
+      color: #ff6ec4;
+      text-decoration: underline;
+    }
+    .contact-label {
+      color: #00bfae;
+      font-weight: bold;
+    }
+    .contact-text {
       color: #fff;
-      text-shadow: 0 0 8px #30cfd0;
+      font-weight: normal;
     }
     form {
       margin-top: 8px;
@@ -131,40 +144,38 @@
     }
   </style>
 </head>
-  <link rel="stylesheet" href="https://unpkg.com/@waline/client/dist/waline.css">
-<script src="https://unpkg.com/@waline/client/dist/waline.js"></script>
 <body>
   <div class="card">
     <img src="tjy.jpg" alt="我的头像" class="avatar">
     <h1>雄狮养成计划</h1>
     <p>欢迎来到我的主页！一起见证科技与成长的力量。</p>
-    <button class="btn">✨ Follow ✨</button>
-    <div class="links">
-      <div class="links">
-  <a href="mailto:你的邮箱">邮箱</a>
-  <span>微信：tjy021006</span>
-  <span>电话：13523443682</span>
-  <a href="https://github.com/你的GitHub用户名" target="_blank">GitHub</a>
-</div>
-      <a href="mailto:15233726302@163.com">联系我</a>
-      <a href="https://github.com/qingyuan-1-1" target="_blank">我的GitHub</a>
+    <a href="profile.html" class="btn follow-btn">✨ Follow ✨</a>
+    <!-- 联系方式一行美化，直接放在这里 -->
+    <div class="contact-row">
+      <a href="mailto:15233726302@163.com" class="contact-link">邮箱</a>
+      <span class="contact-label">微信：</span><span class="contact-text">tjy021006</span>
+      <span class="contact-label">电话：</span><span class="contact-text">13523443682</span>
+      <a href="https://github.com/qingyuan-1-1" class="contact-link" target="_blank">GitHub</a>
     </div>
     <form>
       <input type="text" placeholder="你的名字"><br>
       <textarea rows="3" placeholder="留言内容"></textarea><br>
       <button type="submit">提交留言</button>
-    </form><div id="waline"></div>
+    </form>
+    <div id="waline"></div>
   </div>
-</body><script>
-Waline.init({
-  el: '#waline',
-  serverURL: 'https://https://vc9y3kcm.lc-cn-n1-shared.com',
-  lang: 'zh-CN',
-  emoji: [
-    '//unpkg.com/@waline/emojis@1.1.0/weibo',
-    '//unpkg.com/@waline/emojis@1.1.0/bilibili',
-  ],
-  requiredMeta: ['nick', 'mail'],
-});
-</script>
+  <script src="https://unpkg.com/@waline/client/dist/waline.js"></script>
+  <script>
+    Waline.init({
+      el: '#waline',
+      serverURL: 'https://vc9y3kcm.lc-cn-n1-shared.com',
+      lang: 'zh-CN',
+      emoji: [
+        '//unpkg.com/@waline/emojis@1.1.0/weibo',
+        '//unpkg.com/@waline/emojis@1.1.0/bilibili',
+      ],
+      requiredMeta: ['nick', 'mail'],
+    });
+  </script>
+</body>
 </html>
